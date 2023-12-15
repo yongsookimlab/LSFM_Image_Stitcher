@@ -1,5 +1,12 @@
 # LSFM Image Stitcher
-This code is designed to stitch together images taken by light sheet fluorescence microscopy (LSFM) using SmartSPIM (product of LifeCanvas Technologies). It takes raw TIF (.tif) files from the SmartSPIM system, deforms the image to correct the aberration, adjust the intensity profile to correct the photo bleaching, and finally stitch them together based on the best cross matching coordinates. The code calls on ImageJ for image processing.  
+- Created by the Yongsoo Kim Lab (https://kimlab.io/) in 2021.
+
+This code is designed to stitch together images taken by light sheet fluorescence microscopy (LSFM) using SmartSPIM (product of LifeCanvas Technologies). It takes raw TIF (.tif) files from the SmartSPIM system, deforms the image to correct the aberration, adjust the intensity profile to correct the photo bleaching, and finally stitch them together based on the best cross matching coordinates. The code calls on ImageJ for image processing.
+
+- Previously implemented for:
+    - Whole mouse brain mapping of the oxytocin wiring system: https://doi.org/10.1523/JNEUROSCI.0307-22.2022
+    - Cerebrovasculature and vascular cell type mapping in the adult and aging mouse brain: https://www.biorxiv.org/content/10.1101/2023.05.23.541998v1, and
+    - Creating a multimodal developmental mouse brain common coordinate framework: https://www.biorxiv.org/content/10.1101/2023.09.14.557789v1
 
 ## How To Use
 The following programs must first be installed in your computer before code launch: MATLAB, ImageJ (FIJI)
