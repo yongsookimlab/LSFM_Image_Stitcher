@@ -1,19 +1,33 @@
 # LSFM Image Stitcher
-- Created by the Yongsoo Kim Lab (https://kimlab.io/) in 2021.
+- Created by the [Yongsoo Kim Lab](https://kimlab.io/)
+- README written and updated on 20231219 by J. Liwang
 
-This code is designed to stitch together images taken by light sheet fluorescence microscopy (LSFM) using SmartSPIM (product of LifeCanvas Technologies). It takes raw TIF (.tif) files from the SmartSPIM system, deforms the image to correct the aberration, adjust the intensity profile to correct the photo bleaching, and finally stitch them together based on the best cross matching coordinates. The code calls on ImageJ for image processing.
+This code is designed to stitch together images taken by light sheet fluorescence microscopy (LSFM) using SmartSPIM (product of LifeCanvas Technologies). It takes raw TIF (.tif) files from the SmartSPIM system and stitches them together based on the best cross matching coordinates. The code calls on ImageJ for image processing.
 
 - Previously implemented for:
-    - Whole mouse brain mapping of the oxytocin wiring system: https://doi.org/10.1523/JNEUROSCI.0307-22.2022
-    - Cerebrovasculature and vascular cell type mapping in the adult and aging mouse brain: https://www.biorxiv.org/content/10.1101/2023.05.23.541998v1, and
-    - Creating a multimodal developmental mouse brain common coordinate framework: https://www.biorxiv.org/content/10.1101/2023.09.14.557789v1
+    - Whole mouse brain mapping of the oxytocin wiring system: [doi](https://doi.org/10.1523/JNEUROSCI.0307-22.2022)
+    - Cerebrovasculature and vascular cell type mapping in the adult and aging mouse brain: [preprint](https://www.biorxiv.org/content/10.1101/2023.05.23.541998v1)
+    - Creating a multimodal developmental mouse brain common coordinate framework: [preprint](https://www.biorxiv.org/content/10.1101/2023.09.14.557789v1)
 
+## System Requirements
+> Please make sure the following requirements (ie. operating system, software) are installed on your machine prior to code use.
+
+### Hardware
+Ideally, a high-performance computer with a 32- or 64-core processor to perform parallel computing in MATLAB.
+- Microsoft Windows 10, 64-bit (operating system that the code was built and tested with) 
+
+### Software
+- MATLAB (MathWorks): [download](https://www.mathworks.com/products/matlab.html?s_tid=hp_products_matlab)
+  - Tested using MATLAB versions R2020a and R2021b
+- Fiji (ImageJ2): [download](https://imagej.net/software/fiji/)
+  - Tested using ImageJ (1.53t) with Java 1.8.0_172 (64-bit)
+ 
+  
 ## How To Use
-The following programs must first be installed in your computer before code launch: MATLAB, ImageJ (FIJI)
 
-1. Create a new folder in a local drive (preferable) and rename with sample ID information. This will be the working directory containing the stitched data output.
-2. Open the script *RUN_THIS_FILE.m* in MATLAB.
-3. Under *Basic Settings*, set *"Source_folder"* equal to the path for the main directory containing the imaged TIFs, meta data, and tile settings.
+1. Create a new folder in a local computer drive (preferable) and rename with sample ID information. This will be the working directory containing the stitched data output.
+2. Open the script **RUN_THIS_FILE.m** in MATLAB.
+3. Under **Basic Settings**, set "Source_folder" equal to the path for the main directory containing the imaged TIFs, meta data, and tile settings.
 4. Example directory structure:
     - Ex_488_Em_525
     - Ex_561_Em_600
@@ -21,8 +35,8 @@ The following programs must first be installed in your computer before code laun
     - ASI_logging.txt
     - metadata.txt
     - TileSettings.ini
-4. Set *"Working_folder"* equal to the path for the working directory created in Step 1. Stitched data output will be deposited here, along with copies of the raw TIFs, meta data, and tile settings.
-5. Set *"channel_for_stitching"* equal to the "number of channels" used (ie. 2, if all three wavelengths were acquired).
+4. Set "Working_folder" equal to the path for the working directory created in Step 1. Stitched data output will be deposited here, along with copies of the raw TIFs, meta data, and tile settings.
+5. Set "channel_for_stitching" equal to the "number of channels" used (ie. 2, if all three wavelengths were acquired).
     - 00 = 488 nm (green)
     - 01 = 561 nm (red)
     - 02 = 642 nm (far red)
